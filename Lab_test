@@ -1,0 +1,28 @@
+//use lab2_A2
+--create database lab2_A2
+/*
+multiple commentc
+case sensative na
+*/
+create table customar1
+(
+firstname varchar(50),
+lastname varchar(50),
+age int
+)
+select * from customar1
+insert into customar1 values('Rahim','khat', 20)
+insert into customar1 values('Rahim','khatun', 30)
+
+--select * from customar1 where LastName ='khan'
+--ADDING NEW COLUMN
+alter table customar1
+add city varchar(20)
+
+--deleting a column in a table
+alter table customar1
+drop COLUMN city
+
+--changing the datatype
+alter table customar1
+alter COLUMN firstname varchar(100)
