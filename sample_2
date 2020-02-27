@@ -1,1 +1,46 @@
 
+use p
+
+create table DEPARTMENT
+(
+DepartmentId int identity(1,1) primary key,
+DepartmentName varchar(100) not null,
+)
+
+
+create table EMPLOYEE1
+(
+EmployeeId int identity(1000,1) primary key,
+FirstName varchar(50),
+LastName varchar(50) NULL  DEFAULT  'Khan',
+JobId int null,
+Salary int not null check(Salary > 0),
+DepartMentId int not null foreign key references DEPARTMENT(DepartmentId),
+)
+
+select * from DEPARTMENT;
+insert into DEPARTMENT values('CSE');
+insert into DEPARTMENT values('EEE');
+insert into DEPARTMENT values('MPE');
+
+
+select * from EMPLOYEE1;
+insert into EMPLOYEE1 values('Sharafat','Ullah', 11, 5000, 1);
+insert into EMPLOYEE1 values('Sharafat','Ullah', 12, 6000, 2);
+insert into EMPLOYEE1 values('Sharafat','Ullah', 13, 7000, 1);
+insert into EMPLOYEE1 values('Sharafat','Ullah', 14, 8000, 3);
+insert into EMPLOYEE1 values('Sharafat','Ullah', 15, 9000, 1);
+insert into EMPLOYEE1 values('Sharafat','Ullah', 16, 11000, 2);
+insert into EMPLOYEE1 values('Sharafat','Ullah', 17, 15000, 3);
+
+
+select EmployeeId from EMPLOYEE1 where EmployeeId=3 ;
+
+
+Delete from EMPLOYEE1
+where JobId = 17;
+
+
+Select * from Employee1 order by salary desc 
+
+
