@@ -1,0 +1,37 @@
+use ri
+
+CREATE TABLE EMPLOYEE
+(
+EmployeeId int IDENTITY(1,1) PRIMARY KEY,
+Name varchar(50) NOT NULL,
+Age int NOT NULL CHECK (Age >= 18),
+Address varchar(200) NULL DEFAULT 'Dhaka',
+Salary decimal(18,2) NULL,
+HireYear int NOT NULL
+)
+
+select *from EMPLOYEE
+INSERT INTO EMPLOYEE (Name, Age, Address, Salary,HireYear)
+VALUES ('Rahim', 32, 'Gulshan',2000.00,2000),
+('Karim', 25, 'Dhanmondi',1500.00,2000),
+('Hashim', 23, 'Motijheel',2000.00,2000),
+('Khan', 25, 'Tejgaon',6500.00,2000),
+('Rahman', 27, 'Wari',8500.00,2005),
+('Ali', 42, 'Kakrail',1000.00,2005),
+('Mehedi', 22, 'Mohammadpur',4500.00,2005),
+('Kashim', 24, 'Kakrail',10000.00,2008),
+('Kazi', 22, 'Kakrail',1000.00,2008),
+('Kazi', 22, 'Banani',1000.00,2010)
+
+
+select *from EMPLOYEE where Name like 'k%m'
+
+select address,AVG(Salary) as 'newSalary' from EMPLOYEE group by Address having AVG(Salary)<5000
+
+select SUBSTRING(Name,1,1) as 'firstLetter',COUNT(Name) as 'total' from EMPLOYEE group by SUBSTRING(Name,1,1)
+
+SELECT Address, MAX(Salary) as 'MaxSalary', MIN(Salary) as 'MinSalary' FROM EMPLOYEE GROUP BY Address having MAX(Salary) > 5000
+
+SELECT HireYear as 'Year of Hire',COUNT(HireYear) as Total FROM EMPLOYEE group by HireYear
+
+delete FROM EMPLOYEE WHERE AGE BETWEEN 30 AND 40
